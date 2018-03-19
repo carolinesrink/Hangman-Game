@@ -15,7 +15,7 @@ console.log(randomResponse);
 // DOM Manipulation
 var underscoreDom = document.getElementsByClassName("underscores");
 var rightGuessDom = document.getElementsByClassName("rightGuess");
-var wrongGuessDom = document.getElementsByClassName("wrongGuess");
+var wrongGuessDom = document.getElementsByClassName("wrongGuesses");
 var guessesRemainingDom = document.getElementsByClassName("remainingGuesses");
 
 // Create underscores based on words chosen at random
@@ -43,14 +43,14 @@ document.addEventListener("keypress", (event) => {
         alert("You Win!")
 
     }
-        // Push wrong guesses into wrong guess class
+        // Push wrong guesses and guesses remaining into wrong guess and guesses remaining class
     } else { 
         if (wrongGuess.indexOf(letter) === -1) {
             guessesRemaining--;
             wrongGuess.push(letter);
-            document.getElementsByClassName("remainingGuesses").textContent = guessesRemaining;
+            wrongGuessDom[0].textContent = wrongGuess;
+            guessesRemainingDom[0].textContent = guessesRemaining;
         }
-        alert("You Lose.")
 
         console.log(guessesRemaining);
     }
